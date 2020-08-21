@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang = "ja-jp">
+<head>
+  <title>見守る君</title>
+</head>
+<body>
+  <h1>見守る君</h1>
+  {% for member in member.all %}
+    {{ member.name }}
+    {{ member.get_place_display }}
+    {{ member.get_status_display }}
+    <br />
+  {% endfor %}
+</body>
+</html>
