@@ -36,6 +36,18 @@ class Member(models.Model):
         default='勤務中',
     )
     
+    #********************************************
+    status_home = models.BooleanField(
+        default=False,
+    )
+    
+    status_meeting = models.BooleanField(
+        default=False,
+    )
+    
+    status_lunch = models.BooleanField(
+        default=False,
+    )
     
     def __str__(self):
         return self.name
