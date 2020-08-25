@@ -1,12 +1,18 @@
 @charset "UTF-8";
 
+body{
+    background-color: #e9eff4;
+}
+
 h1{
+    color: #51505d;
     font-weight: bold;
     margin: 0;
     text-align: center;
 }
 
 h4{
+    color: #51505d;
     font-weight: bold;
     margin: 0;
     text-align: center;
@@ -14,13 +20,12 @@ h4{
 
 hr{
     border-width: 3px;
-    border-color: #2e99a9;
+    border-color: #ced4be;
 }
-
 
 /*メニュー部分*/
 #ham-menu {
-    background-color: #fff; /*メニュー背景色*/
+    background-color: #e9eff4; /*メニュー背景色*/
     box-sizing: border-box;
     height: 100%;
     padding: 10px 40px; /*メニュー内部上下左右余白*/
@@ -34,7 +39,7 @@ hr{
 
 /*メニューアイコン部分は疑似要素で*/
 #ham-menu::before {
-    background-color: #fff; /*ボタン部分背景色*/
+    background-color: #ced4be; /*ボタン部分背景色*/
     border-radius: 0 0 0 10px; /*左下角丸*/
     color: #333; /*アイコン（フォント）色*/
     content: "≡"; /*メニューアイコン*/
