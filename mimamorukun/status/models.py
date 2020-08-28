@@ -35,20 +35,23 @@ class Member(models.Model):
         max_length=10,
         default='勤務中',
     )
-    
+
     #********************************************
+    status_work = models.BooleanField(
+        default=False,
+    )
+
     status_home = models.BooleanField(
         default=False,
     )
-    
+
     status_meeting = models.BooleanField(
         default=False,
     )
-    
+
     status_lunch = models.BooleanField(
         default=False,
     )
-    
+
     def __str__(self):
         return self.name
-    
