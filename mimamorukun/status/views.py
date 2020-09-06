@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Member
+from django.utils import timezone
 
 # Create your views here.
 
@@ -43,6 +44,7 @@ def upd(request, pk):
             t.status_lunch = 'True'
 
     #save()でDBに反映される。
+    t.last_update_time = timezone.datetime.now()
     t.save()
 
     return redirect('status:index')
