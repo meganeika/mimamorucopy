@@ -37,6 +37,12 @@
                 <p>Work Status</p>
             </h4>
     </div>
+    
+    <!-- 自分以外を更新しようとするとエラーメッセージ表示 -->
+    {% if error %}
+    <hr>
+    {{ error }}
+    {% endif %}
 
     <hr>
     <main　class="container">
