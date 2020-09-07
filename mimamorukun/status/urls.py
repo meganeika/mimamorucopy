@@ -5,6 +5,7 @@ from . import views
 app_name = 'status' 
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('update/<int:pk>', views.upd, name='update'), 
+    path('', views.login, name='login'),
+    path('index/', views.index, name='index'),
+    path('update/<int:member_pk>', views.upd, name='update'),
 ]
