@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Member
+from django.utils import timezone
 
 #ログインユーザーのプライマリーキー 　グローバル変数として宣言するとどのメソッドでも共通して使える。
 global user_pk
@@ -76,7 +77,10 @@ def upd(request, member_pk):
                 t.status_lunch = 'False'
             else:
                 t.status_lunch = 'True'
-    
+
+        # 最終更新時刻を更新
+        t.last_update_time = timezone.datetime.now()
+
         #save()でDBに反映される。
         t.save()
     
