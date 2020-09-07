@@ -35,6 +35,7 @@ def index(request):
     member = Member.objects.order_by('id')
     return render(request, 'status/index.html', {'member': member})
 
+
 #ステータス更新    (member_pkにはindex.htmlのmember.pkが引き渡される)
 def upd(request, member_pk):
     global user_pk
