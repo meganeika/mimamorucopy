@@ -36,6 +36,12 @@
                 <p>Work Status</p>
             </h4>
     </div>
+    
+    <!-- 自分以外を更新しようとするとエラーメッセージ表示 -->
+    {% if error %}
+    <hr>
+    {{ error }}
+    {% endif %}
 
     <hr>
     <main　class="container">
@@ -82,11 +88,12 @@
                       {% endif %}
                     </form>
                   </div>
-
-
-
-
-
+                　 <div class="my-box col-4 align-left">
+                    <h6>
+                        <p align="left">最終更新時刻 :<class="last_update_time">{{ member.last_update_time }}</p>
+                    </h6>
+                  </div>
+                  
                 </p>
             </div>
         </h4>

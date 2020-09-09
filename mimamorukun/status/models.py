@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 
 
@@ -51,6 +51,10 @@ class Member(models.Model):
 
     status_lunch = models.BooleanField(
         default=False,
+    )
+
+    last_update_time = models.DateTimeField(
+        default=timezone.now
     )
 
     def __str__(self):
