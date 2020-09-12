@@ -40,16 +40,17 @@
     <!-- 自分以外を更新しようとするとエラーメッセージ表示 -->
     {% if error %}
     <hr>
+    <h5>
     {{ error }}
     {% endif %}
-
+    </h5>
     <hr>
-    <main　class="container">
+    <main　class="container-fluid">
     {% for member in member.all %}
         <h4>
-            <div class="row">
+          <div class="row">
                 <p>
-                  <div class="my-box col-1">
+                  <div class="my-box col-3">
                     <form action="{% url 'status:update' member.pk %}" method="POST">
                       {% csrf_token %}
                       {% if member.status_work %}
@@ -62,40 +63,43 @@
                   <div class="my-box col-2">
                     <h5 class="name">{{ member.name }}</h5>
                   </div>
-                  <div class="my-box col-3 align-left">
+                  <div class="my-box col-7">
                     <form action="{% url 'status:update' member.pk %}" method="POST">
                       {% csrf_token %}
                       {% if member.status_home %}
-                        <button type="submit" name="home" class="btn"><i class="fas fa-home"></i></button>
+                        <button type="submit" name="home" class="btn" style="width:30px; height:30px"><i class="fas fa-home"></i></button>
                       {% else %}
-                        <button type="submit" name="home" class="btn"><i class="fas fa-home icon-gray"></i></button>
+                        <button type="submit" name="home" class="btn" style="width:30px; height:30px"><i class="fas fa-home icon-gray"></i></button>
                       {% endif %}
                     </form>
                     <form action="{% url 'status:update' member.pk %}" method="POST">
                       {% csrf_token %}
                       {% if member.status_meeting %}
-                        <button type="submit" name="meeting" class="btn"><i class="fas fa-users"></i></button>
+                        <button type="submit" name="meeting" class="btn" style="width:30px; height:30px"><i class="fas fa-users"></i></button>
                       {% else %}
-                        <button type="submit" name="meeting" class="btn"><i class="fas fa-users icon-gray"></i></button>
+                        <button type="submit" name="meeting" class="btn" style="width:30px; height:30px"><i class="fas fa-users icon-gray"></i></button>
                       {% endif %}
                     </form>
                     <form action="{% url 'status:update' member.pk %}" method="POST">
                       {% csrf_token %}
                       {% if member.status_lunch %}
-                        <button type="submit" name="lunch" class="btn"><i class="fas fa-utensils"></i></button>
+                        <button type="submit" name="lunch" class="btn" style="width:30px; height:30px"><i class="fas fa-utensils"></i></button>
                       {% else %}
-                        <button type="submit" name="lunch" class="btn"><i class="fas fa-utensils icon-gray"></i></button>
+                        <button type="submit" name="lunch" class="btn" style="width:30px; height:30px"><i class="fas fa-utensils icon-gray"></i></button>
                       {% endif %}
                     </form>
-                  </div>
-                　 <div class="my-box col-4 align-left">
-                    <h6>
-                        <p align="left">最終更新時刻 :<class="last_update_time">{{ member.last_update_time }}</p>
-                    </h6>
-                  </div>
-                  
+                  </div>                
                 </p>
-            </div>
+          </div>
+            <div class="row">           
+              <p>
+                <div class="my-box col-11 align-right">
+                  <h6>
+                      <p align="right">最終更新時刻 :<class="last_update_time">{{ member.last_update_time }}</p>
+                  </h6>
+                </div>
+              </p>
+            </div> 
         </h4>
     {% endfor %}
     </main>

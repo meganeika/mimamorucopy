@@ -2,6 +2,7 @@
 
 body{
     background-color: #e9eff4;
+    white-space: nowrap;
 }
 
 h1{
@@ -19,9 +20,19 @@ h4{
 }
 
 hr{
-    border-width: 3px;
     border-color: #ced4be;
 }
+
+h5{
+    font-size: 4vw; 
+    text-align: center;
+}
+
+h6{
+    font-size: 4vw; 
+    text-align: right;
+}
+
 
 /*メニュー部分*/
 #ham-menu {
@@ -77,8 +88,10 @@ hr{
     opacity: 0.5; /*黒背景部分透過度*/
     z-index: 999;
 }
+
 .align-right{
     text-align: right;
+    font-size: 3vw; 
 }
 
 /*アイコンの色*/
@@ -89,8 +102,11 @@ hr{
 /*ステータスボタンは横並びにする*/
 .btn {
     float: left;
+    display:inline-flex
 }
 
 .name {
-  text-align: center;
-}
+    text-align: center;
+    font-size: 18px; 
+    display:inline-flex
+  }
