@@ -1,0 +1,16 @@
+deploy_staging:
+  stage: deploy
+  image: kroniak/ssh-client
+  environment:
+    name: staging
+    url: https://sample-app.net
+  only:
+    - master
+  script:
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - cat "$SSH_PRIVATE_KEY_STAGING" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh ec2-user@ec2-54-150-120-136.ap-northeast-1.compute.amazonaws.com sh /home/ec2-user/auto.sh
+  
