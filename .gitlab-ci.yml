@@ -13,4 +13,3 @@ deploy_staging:
     - cat "$SSH_PRIVATE_KEY_STAGING" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh ec2-user@ec2-54-150-120-136.ap-northeast-1.compute.amazonaws.com sh /home/ec2-user/auto.sh
-  
