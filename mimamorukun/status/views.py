@@ -65,18 +65,22 @@ def upd(request, member_pk):
                 t.status_home = 'True'
     
         # meetingボタンがクリックされた場合の処理
+        # LITE-90 meetingとlunchの排他制御実装
         if 'meeting' in request.POST:
             if t.status_meeting:
                 t.status_meeting = 'False'
             else:
                 t.status_meeting = 'True'
+                t.status_lunch = 'False'
     
         # lunchボタンがクリックされた場合の処理
+        # LITE-90 meetingとlunchの排他制御実装
         if 'lunch' in request.POST:
             if t.status_lunch:
                 t.status_lunch = 'False'
             else:
                 t.status_lunch = 'True'
+                t.status_meeting = 'False'
 
         # 最終更新時刻を更新
         t.last_update_time = timezone.datetime.now()
