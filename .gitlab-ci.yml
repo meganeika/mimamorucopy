@@ -2,9 +2,10 @@ deploy_staging:
   stage: deploy
   image: kroniak/ssh-client
   environment:
-    name: staging
-    url: https://sample-app.net
+    name: EC2
+    url: http://ec2-54-150-120-136.ap-northeast-1.compute.amazonaws.com/status/
   only:
+    refs:
     - master
   script:
     - mkdir -p ~/.ssh
