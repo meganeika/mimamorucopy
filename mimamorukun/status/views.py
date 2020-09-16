@@ -83,7 +83,7 @@ def upd(request, member_pk):
                 t.status_meeting = 'False'
 
         # 最終更新時刻を更新
-        t.last_update_time = timezone.datetime.now()
+        t.last_update_time = timezone.localtime()
 
         #save()でDBに反映される。
         t.save()
