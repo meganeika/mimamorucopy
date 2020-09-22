@@ -1,32 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html>
   {% load static %}
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="{% static 'favicon_black.ico' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    
     <title>ログイン画面</title>
+    
   </head>
-  <body>
+    
+  <body style="background-color:#e9eff4; margin-top:150px;">
   
-    <form class="form-signin" method="POST" action=''>{% csrf_token %}
-      <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <form class="form-signin" method="POST" action='' align="center">{% csrf_token %}
+    
+      <!--　マグカップアイコン -->
+      <i class="fas fa-coffee fa-5x" style="margin-bottom:20px"></i>
+
       <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
       
+      <!--　登録されてない名前の場合、エラーメッセージ表示 -->
       {% if error %}
-      {{ error }}
+        {{ error }}
       {% endif %}
+      
+      <div align="center"> 
+        <input type="text" id="inputname" class="form-control" name="username" placeholder="username(苗字)" style="width:300px; margin-top:10px;" required autofocus>
+        <button class="btn btn-lg btn-primary" type="submit" style="width:300px; margin-top:10px;">login</button>
+        <br>
+        <p class="mt-5 mb-3 text-muted">&copy; MUIT</p>
+　　　　　</div>
 
-      <input type="text" id="inputname" class="form-control" name="username" placeholder="username" required autofocus>
-      <div class="checkbox mb-3">
-      <!-- 入力枠とボタンの間の余白 -->
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">login</button>
-      <p class="mt-5 mb-3 text-muted">&copy; MUIT</p>
     </form>
     
 
