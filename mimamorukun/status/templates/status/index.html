@@ -33,9 +33,9 @@
     <hr>
 
     <div class="container-fluid">
-            <h4>
+            <h3>
                 <p>Work Status</p>
-            </h4>
+            </h3>
     </div>
     
     <!-- 自分以外を更新しようとするとエラーメッセージ表示 -->
@@ -65,30 +65,32 @@
                     <h5 class="name">{{ member.name }}</h5>
                   </div>
                   <div class="my-box col-7">
-                    <form action="{% url 'status:update' member.pk %}" method="POST">
-                      {% csrf_token %}
-                      {% if member.status_home %}
-                        <button type="submit" name="home" class="btn" style="width:30px; height:30px"><i class="fas fa-home"></i></button>
-                      {% else %}
-                        <button type="submit" name="home" class="btn" style="width:30px; height:30px"><i class="fas fa-home icon-gray"></i></button>
-                      {% endif %}
-                    </form>
-                    <form action="{% url 'status:update' member.pk %}" method="POST">
-                      {% csrf_token %}
-                      {% if member.status_meeting %}
-                        <button type="submit" name="meeting" class="btn" style="width:30px; height:30px"><i class="fas fa-users"></i></button>
-                      {% else %}
-                        <button type="submit" name="meeting" class="btn" style="width:30px; height:30px"><i class="fas fa-users icon-gray"></i></button>
-                      {% endif %}
-                    </form>
-                    <form action="{% url 'status:update' member.pk %}" method="POST">
-                      {% csrf_token %}
-                      {% if member.status_lunch %}
-                        <button type="submit" name="lunch" class="btn" style="width:30px; height:30px"><i class="fas fa-utensils"></i></button>
-                      {% else %}
-                        <button type="submit" name="lunch" class="btn" style="width:30px; height:30px"><i class="fas fa-utensils icon-gray"></i></button>
-                      {% endif %}
-                    </form>
+                    <div class="index">
+                      <form action="{% url 'status:update' member.pk %}" method="POST">
+                        {% csrf_token %}
+                        {% if member.status_home %}
+                          <button type="submit" name="home" class="btn" style="width:30px; height:30px"><i class="fas fa-home"></i></button>
+                        {% else %}
+                          <button type="submit" name="home" class="btn" style="width:30px; height:30px"><i class="fas fa-home icon-gray"></i></button>
+                        {% endif %}
+                      </form>
+                      <form action="{% url 'status:update' member.pk %}" method="POST">
+                        {% csrf_token %}
+                        {% if member.status_meeting %}
+                          <button type="submit" name="meeting" class="btn" style="width:30px; height:30px"><i class="fas fa-users"></i></button>
+                        {% else %}
+                          <button type="submit" name="meeting" class="btn" style="width:30px; height:30px"><i class="fas fa-users icon-gray"></i></button>
+                        {% endif %}
+                      </form>
+                      <form action="{% url 'status:update' member.pk %}" method="POST">
+                        {% csrf_token %}
+                        {% if member.status_lunch %}
+                          <button type="submit" name="lunch" class="btn" style="width:30px; height:30px"><i class="fas fa-utensils"></i></button>
+                        {% else %}
+                          <button type="submit" name="lunch" class="btn" style="width:30px; height:30px"><i class="fas fa-utensils icon-gray"></i></button>
+                        {% endif %}
+                      </form>
+                    </div>
                   </div>                
                 </p>
           </div>
