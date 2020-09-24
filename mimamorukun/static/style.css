@@ -3,6 +3,7 @@
 body{
     background-color: #e9eff4;
     white-space: nowrap;
+    vertical-align: middle;
 }
 
 h1{
@@ -11,12 +12,22 @@ h1{
     margin: 0;
     text-align: center;
 }
+h3{
+    color: #51505d;
+    font-weight: bold;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
 
 h4{
     color: #51505d;
     font-weight: bold;
     margin: 10px;
-    text-align: center;
+    text-align: left;
+    vertical-align: top;
+    align-items: center;
+    height: 50px;
 }
 
 hr{
@@ -29,10 +40,24 @@ h5{
 }
 
 h6{
-    font-size: 4vw; 
+    font-size: 12px; 
+    vertical-align: middle;
     text-align: right;
 }
 
+/*ステータスボタンは横並びにする*/
+.index {
+    float: left;
+    display:inline-flex;
+    text-align: center;
+}
+
+.name {
+    font-size: 18px; 
+    line-height: 40px;
+    display:inline-flex;
+    align-items: center;
+  }
 
 /*メニュー部分*/
 #ham-menu {
@@ -89,24 +114,9 @@ h6{
     z-index: 999;
 }
 
-.align-right{
-    text-align: right;
-    font-size: 3vw; 
-}
-
 /*アイコンの色*/
 .icon-gray {
     color: silver;
 }
 
-/*ステータスボタンは横並びにする*/
-.btn {
-    float: left;
-    display:inline-flex
-}
 
-.name {
-    text-align: center;
-    font-size: 18px; 
-    display:inline-flex
-  }
