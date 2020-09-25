@@ -162,9 +162,19 @@ function restore_scroll() {
         }
 }
 
+window.onload = function () {
+  setTimeout(
+    function () {
+      restore_scroll();
+    },
+    "5000"
+  );
+};
+/*
 (window.onload = function() {
         restore_scroll();
 })();
+*/
 </script>
 </body>
 </html>
