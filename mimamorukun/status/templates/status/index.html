@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5" >
     <title>みまもる</title>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -119,5 +120,35 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<!-- リロード時のスクロール位置保持のスクリプト -->
+<script>
+function keep_scroll_reload() {
+          var re = /&page_x=(\d+)&page_y=(\d+)/;
+          var page_x = document.documentElement ? document.documentElement.scrollLeft : document.body.scrollLeft;
+          var page_y = document.documentElement ? document.documentElement.scrollTop : document.body.scrollTop;
+          var position = '&page_x=' + page_x + '&page_y=' + page_y;
+          if(!url.match(re)) {
+                  //初回
+                  location.href = url + position;
+          } else {
+                  //2回目以降
+                  location.href = url.replace(/&page_x=(\d+)&page_y=(\d+)/,position);
+          }
+}
+
+// スクロール位置を復元
+function restore_scroll() {
+        var re = /&page_x=(\d+)&page_y=(\d+)/;
+        if(window.location.href.match(re)) {
+                var position = window.location.href.match(re)
+                window.scrollTo(position[1],position[2]);
+        }
+}
+
+(window.onload = function() {
+        restore_scroll();
+})();
+</script>
+
 </body>
 </html>
