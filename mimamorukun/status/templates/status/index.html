@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- いったんコメントアウトしておく
     <meta http-equiv="refresh" content="5" >
--->
     <title>みまもる</title>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -122,23 +120,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <!-- リロード時のスクロール位置保持のスクリプト -->
 <script>
-
-window.onscroll = function()
-{
-    var re = /\?page_y=(\d+)/;
-    var page_y = document.documentElement.scrollTop || document.body.scrollTop;
-    var position = '?page_y=' + page_y;
-    var url = location.href;
-    if(!url.match(re)) {
-            //初回
-            location.href = url + position;
-    } else {
-            //2回目以降
-            location.href = url.replace(/\?page_y=(\d+)/,position);
-    }
-}
-
-/*
 function keep_scroll_reload() {
           var re = /&page_x=(\d+)&page_y=(\d+)/;
           var page_x = document.documentElement ? document.documentElement.scrollLeft : document.body.scrollLeft;
@@ -152,29 +133,20 @@ function keep_scroll_reload() {
                   location.href = url.replace(/&page_x=(\d+)&page_y=(\d+)/,position);
           }
 }
-*/
+
 // スクロール位置を復元
 function restore_scroll() {
-        var re = /\?page_y=(\d+)/;
+        var re = /&page_x=(\d+)&page_y=(\d+)/;
         if(window.location.href.match(re)) {
                 var position = window.location.href.match(re)
-                window.scrollTo(0,position[1]);
+                window.scrollTo(position[1],position[2]);
         }
 }
 
-window.onload = function () {
-  setTimeout(
-    function () {
-      restore_scroll();
-    },
-    "5000"
-  );
-};
-/*
 (window.onload = function() {
         restore_scroll();
 })();
-*/
 </script>
+
 </body>
 </html>
