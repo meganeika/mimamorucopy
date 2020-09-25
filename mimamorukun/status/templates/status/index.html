@@ -127,14 +127,14 @@ window.onscroll = function()
 {
     var re = /&page_x=(\d+)&page_y=(\d+)/;
     var page_y = document.documentElement.scrollTop || document.body.scrollTop;
-    var position = '&page_y=' + page_y;
+    var position = '?page_y=' + page_y;
     var url = location.href;
     if(!url.match(re)) {
             //初回
             location.href = url + position;
     } else {
             //2回目以降
-            location.href = url.replace(/&page_y=(\d+)/,position);
+            location.href = url.replace(/?page_y=(\d+)/,position);
     }
 }
 
@@ -155,10 +155,10 @@ function keep_scroll_reload() {
 */
 // スクロール位置を復元
 function restore_scroll() {
-        var re = /&page_x=(\d+)&page_y=(\d+)/;
+        var re = /?page_y=(\d+)/;
         if(window.location.href.match(re)) {
                 var position = window.location.href.match(re)
-                window.scrollTo(position[1],position[2]);
+                window.scrollTo(0,position[2]);
         }
 }
 
