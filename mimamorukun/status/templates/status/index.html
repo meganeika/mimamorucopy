@@ -158,7 +158,7 @@ function restore_scroll() {
         var re = /\?page_y=(\d+)/;
         if(window.location.href.match(re)) {
                 var position = window.location.href.match(re)
-                window.scrollTo(0,position[2]);
+                window.scrollTo(0,position[1]);
         }
 }
 
