@@ -125,6 +125,7 @@
 
 window.onscroll = function()
 {
+    var re = /&page_x=(\d+)&page_y=(\d+)/;
     var page_y = document.documentElement.scrollTop || document.body.scrollTop;
     var position = '&page_y=' + page_y;
     if(!url.match(re)) {
