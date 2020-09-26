@@ -138,7 +138,8 @@ function hoge() {
 }
 window.onscroll = function(){
           var page_y = document.documentElement ? document.documentElement.scrollTop : document.body.scrollTop;
-          document.getElementById("positionY").value = page_y;
+          document.getElementsByName("positionY")[0].value = page_y;
+          document.getElementsByName("positionY")[3].value = page_y;
 }
 
 // スクロール位置を復元
