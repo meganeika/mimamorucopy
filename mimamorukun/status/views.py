@@ -5,7 +5,7 @@ from django.utils import timezone
 
 #ログインユーザーのプライマリーキー 　グローバル変数として宣言するとどのメソッドでも共通して使える。
 global user_pk
-
+global pos_y
 
 
 #ログイン画面
@@ -32,15 +32,16 @@ def login(request):
 
 #ホーム画面呼び出し
 def index(request):
+    global pos_y
     member = Member.objects.order_by('id')
-    positionY = request.POST.get('positionY',129)
-    return render(request, 'status/index.html', {'member': member,'position':positionY})
+    return render(request, 'status/index.html', {'member': member,'position':pos_y})
 
 
 #ステータス更新    (member_pkにはindex.htmlのmember.pkが引き渡される)
 def upd(request, member_pk):
     global user_pk
-  
+    global pos_y
+
     #更新対象が自分以外だったら更新しない。
     if member_pk != user_pk:
         member = Member.objects.order_by('id')
@@ -88,5 +89,7 @@ def upd(request, member_pk):
 
         #save()でDBに反映される。
         t.save()
+
+        pos_Y = request.POST.get('positionY',147)
     
         return redirect('status:index')

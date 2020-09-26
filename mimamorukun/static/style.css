@@ -67,7 +67,7 @@ h6{
     padding: 10px 40px; /*メニュー内部上下左右余白*/
     position: fixed;
     right: -300px; /*メニュー横幅①と合わせる*/
-    top: 0;
+    top: 3px;
     transition: transform 0.3s linear 0s; /*0.3s は変化するのにかかる時間*/
     width: 300px; /*メニュー横幅①*/
     z-index: 1000;
