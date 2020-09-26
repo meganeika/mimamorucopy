@@ -33,7 +33,7 @@ def login(request):
 #ホーム画面呼び出し
 def index(request):
     member = Member.objects.order_by('id')
-    positionY = request.POST['positionY']
+    positionY = request.POST.get('positionY',0)
     return render(request, 'status/index.html', {'member': member,'position':positionY})
 
 
