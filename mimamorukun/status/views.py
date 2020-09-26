@@ -89,4 +89,4 @@ def upd(request, member_pk):
         #save()でDBに反映される。
         t.save()
     
-        return redirect('status:index')
+        return render(request, 'status/index.html')
