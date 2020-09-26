@@ -83,7 +83,7 @@ h6{
     font-size: 50px; /*アイコン（フォント）サイズ*/
     height: 50px;
     line-height: 50px; /*縦位置中央化*/
-    position: absolute;
+    position: fixed;
     right: 100%;
     text-align: center;
     top: 0;
