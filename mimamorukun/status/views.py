@@ -11,6 +11,7 @@ global pos_y
 #ログイン画面
 def login(request):
     global user_pk
+    global pos_y
   
     #POSTメソッド＝ログイン画面でloginボタンを押したとき
     if request.method == "POST":
@@ -20,6 +21,7 @@ def login(request):
         try:
             user = Member.objects.get(name=username)
             user_pk = user.pk
+            pos_y = 0
             return redirect('status:index')
           
         #ユーザーが存在しない場合
