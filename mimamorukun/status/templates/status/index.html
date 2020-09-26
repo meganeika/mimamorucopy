@@ -60,7 +60,7 @@
                       {% else %}
                         <button type="submit" name="work" class="btn"><i class="fas fa-user-circle fa-2x icon-gray"></i></button>
                       {% endif %}
-                      <input type="text" id="positionY" value={{ position }}>
+                      <input type="text" id="positionY" name="positionY" value={{ position }}>
                     </form>
                   </div>
                   <div class="my-box col-2">
@@ -128,7 +128,7 @@ function keep_scroll_reload() {
           var page_x = document.documentElement ? document.documentElement.scrollLeft : document.body.scrollLeft;
           var page_y = document.documentElement ? document.documentElement.scrollTop : document.body.scrollTop;
           var position = '&page_x=' + page_x + '&page_y=' + page_y;
-          document.getElementById("positionY").value = pageY;
+          document.getElementsByName("positionY")[0].value = pageY;
           if(!url.match(re)) {
                   //初回
                   location.href = url + position;
@@ -145,7 +145,7 @@ function restore_scroll() {
                 var position = window.location.href.match(re)
                 window.scrollTo(position[1],position[2]);
         }else{
-            var position = document.getElementById("positionY").value;
+            var position = document.getElementsByName("positionY")[0].value;
             window.scrollTo(0, position);
         }
 }
