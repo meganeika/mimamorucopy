@@ -33,7 +33,8 @@ def login(request):
 #ホーム画面呼び出し
 def index(request):
     member = Member.objects.order_by('id')
-    return render(request, 'status/index.html', {'member': member,'position':250})
+    positionY = request.POST['positionY']
+    return render(request, 'status/index.html', {'member': member,'position':positionY})
 
 
 #ステータス更新    (member_pkにはindex.htmlのmember.pkが引き渡される)
