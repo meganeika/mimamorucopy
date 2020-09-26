@@ -123,9 +123,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <!-- リロード時のスクロール位置保持のスクリプト -->
 <script>
-window.onscroll = function() {
+function hoge() {
+          var url
           var re = /&page_x=(\d+)&page_y=(\d+)/;
-          var url=""
           var page_x = document.documentElement ? document.documentElement.scrollLeft : document.body.scrollLeft;
           var page_y = document.documentElement ? document.documentElement.scrollTop : document.body.scrollTop;
           var position = '&page_x=' + page_x + '&page_y=' + page_y;
