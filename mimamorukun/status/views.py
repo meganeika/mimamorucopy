@@ -92,6 +92,6 @@ def upd(request, member_pk):
         #save()でDBに反映される。
         t.save()
 
-        pos_Y = request.POST.get('positionY',147)
+        pos_y = request.POST.get('positionY',147)
     
-        return redirect('status:index')
+        return redirect('status:index')  #, pos_y = post.pk)
