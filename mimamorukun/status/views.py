@@ -44,7 +44,7 @@ def upd(request, member_pk):
     global user_pk
     global pos_y
 
-    #更新対象が自分以外だったら更新しない。
+    #更新対象が自分以外だったら更新しない。エラーメッセージが見えるようにスクロールも先頭へ
     if member_pk != user_pk:
         member = Member.objects.order_by('id')
         return render(request, 'status/index.html', {'member': member, 'error':'!!自分以外のステータスは更新できません!!','position':0})
@@ -92,6 +92,7 @@ def upd(request, member_pk):
         #save()でDBに反映される。
         t.save()
 
-        pos_y = request.POST.get('positionY',147)
+        # スクロール位置をグローバル変数に渡す
+        pos_y = request.POST.get('positionY',0)
     
-        return redirect('status:index')  #, pos_y = post.pk)
+        return redirect('status:index')
