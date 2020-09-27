@@ -108,6 +108,9 @@ h6{
 #ham-menu:hover {
     transform: translate(-300px); /*メニュー横幅①と合わせる*/
 }
+#ham-menu:hover::before {
+    transform: translate(-300px); /*メニュー横幅①と合わせる*/
+}
 
 #ham-menu:hover + #menu-background {
     opacity: 0.5; /*黒背景部分透過度*/
