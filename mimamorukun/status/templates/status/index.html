@@ -165,6 +165,10 @@ function restore_scroll() {
 (window.onload = function() {
         restore_scroll();
 })();
+
+// Andoroidで拡大できないようにするおまじない
+document.querySelector("[name=viewport]").setAttribute("content", "width=device-width, initial-scale=1, user-scalable=no");
+
 </script>
 
 </body>
