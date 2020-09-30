@@ -5,12 +5,13 @@ from django.utils import timezone
 
 #ログインユーザーのプライマリーキー 　グローバル変数として宣言するとどのメソッドでも共通して使える。
 global user_pk
-
+global pos_y
 
 
 #ログイン画面
 def login(request):
     global user_pk
+    global pos_y
   
     #POSTメソッド＝ログイン画面でloginボタンを押したとき
     if request.method == "POST":
@@ -20,6 +21,7 @@ def login(request):
         try:
             user = Member.objects.get(name=username)
             user_pk = user.pk
+            pos_y = 0
             return redirect('status:index')
           
         #ユーザーが存在しない場合
@@ -32,18 +34,20 @@ def login(request):
 
 #ホーム画面呼び出し
 def index(request):
+    global pos_y
     member = Member.objects.order_by('id')
-    return render(request, 'status/index.html', {'member': member})
+    return render(request, 'status/index.html', {'member': member,'position':pos_y})
 
 
 #ステータス更新    (member_pkにはindex.htmlのmember.pkが引き渡される)
 def upd(request, member_pk):
     global user_pk
-  
-    #更新対象が自分以外だったら更新しない。
+    global pos_y
+
+    #更新対象が自分以外だったら更新しない。エラーメッセージが見えるようにスクロールも先頭へ
     if member_pk != user_pk:
         member = Member.objects.order_by('id')
-        return render(request, 'status/index.html', {'member': member, 'error':'!!自分以外のステータスは更新できません!!'})
+        return render(request, 'status/index.html', {'member': member, 'error':'!!自分以外のステータスは更新できません!!','position':0})
     
     #更新対象が自分だったら更新。
     else:
@@ -87,5 +91,8 @@ def upd(request, member_pk):
 
         #save()でDBに反映される。
         t.save()
+
+        # スクロール位置をグローバル変数に渡す
+        pos_y = request.POST.get('positionY',0)
     
         return redirect('status:index')
